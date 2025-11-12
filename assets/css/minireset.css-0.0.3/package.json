@@ -1,0 +1,37 @@
+{
+  "name": "minireset.css",
+  "version": "0.0.3",
+  "description": "A tiny modern CSS reset",
+  "main": "minireset.css",
+  "scripts": {
+    "build": "npm run build-sass && npm run build-min-sass",
+    "build-sass": "node-sass --output-style expanded minireset.sass minireset.css",
+    "build-min-sass": "node-sass --output-style compressed minireset.sass minireset.min.css",
+    "docs": "node-sass --output-style compressed docs/docs.sass docs/docs.css",
+    "start": "npm run docs -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgthms/minireset.css.git"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "reset",
+    "mini"
+  ],
+  "author": "Jeremy Thomas <bbxdesign@gmail.com> (http://jgthms.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jgthms/minireset.css/issues"
+  },
+  "homepage": "https://github.com/jgthms/minireset.css#readme",
+  "devDependencies": {
+    "node-sass": "^3.9.3"
+  },
+  "files": [
+    "minireset.css",
+    "minireset.min.css",
+    "minireset.sass"
+  ]
+}

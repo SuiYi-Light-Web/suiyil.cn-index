@@ -1,22 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <!--
 Project Link: https://github.com/fly3949/fly.moe
 -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="UTF-8" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
     <meta name="HandheldFriendly" content="true">
-    <title>Fly の 宅基地</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/minireset.css@0.0.3/minireset.min.css" integrity="sha256-rYUTtzummUpBJLuuLnVN9Hy06M9uLlZ8W8VZOyiX2WQ="
-        crossorigin="anonymous">
+    <title>XXXX的港湾 · 主页 — XXXX个人分享 | suiyil.cn </title>
+    <meta name="keywords" content="XXXX,XXXX个人主页,个人主页,XXXX个人分享" />
+    <link rel="stylesheet" href="assets/css/minireset.css-0.0.3/minireset.min.css" />
+    <link rel="stylesheet" href="assets/icofont1/iconfont.css">
     <link href="assets/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/APlayer/dist/APlayer.min.css">
     <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js" integrity="sha256-9uAoNWHdszsUDhSXf/rVcWOqKPfi5/8V5R4UdbZle2A=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js" integrity="sha256-nwhzW/P9gnvWMPOm84MK8BzQRRMdi8iutxMuYsYcOgw=" crossorigin="anonymous"></script>
     <![endif]-->
+    <!-- QQCard BEGIN -->
+    <meta itemprop="name" content="XXXX主页">
+    <meta itemprop="image" content="assets/img/avatar.png">
+    <meta name="description" itemprop="description" content="一个兴趣使然的小站">
+    <!-- QQCard END -->
+
 </head>
 
 <body>
@@ -38,11 +48,12 @@ Project Link: https://github.com/fly3949/fly.moe
         <div class="content">
             <div class="left">
                 <div class="avatar">
-                    <img src="assets/img/logo.jpg">
+                    <img src="assets/img/avatar.png">
                 </div>
                 <ul class="menu">
+
                     <li>
-                        <a goto="#home">HOME</a>
+                        <a goto="#home" class="active">HOME</a>
                     </li>
                     <li>
                         <a goto="#archives">ARCHIVES</a>
@@ -51,7 +62,7 @@ Project Link: https://github.com/fly3949/fly.moe
                         <a goto="#contact">CONTACT</a>
                     </li>
                     <li>
-                        <a goto="#donate">DONATE</a>
+                        <a goto="#diy">NOTICE</a>
                     </li>
                 </ul>
                 <div class="copyright">
@@ -63,11 +74,11 @@ Project Link: https://github.com/fly3949/fly.moe
             </div>
             <div class="right">
                 <section id="home" class="active">
-                    <h1>Fly3949</h1>
-                    <p>
-                        我，Fly3949，苣蒻。
-                        <br> 对，苣蒻，菜，菜爆了。
-                    </p>
+
+                    <h1>XXXX</h1>
+                    <p> 一个兴趣使然的小站</p>
+                    <p><a href="#" target="_blank"> <img src="blog-logo.png" alt="XXXX博客"
+                                title="XXXX博客"></a></p>
                 </section>
                 <section id="archives">
                     <h1>近期文章</h1>
@@ -78,44 +89,53 @@ Project Link: https://github.com/fly3949/fly.moe
                 <section id="contact">
                     <h1>捕捉方式</h1>
                     <div class="items">
-                        <a href="https://www.fly3949.com/" target="_blank">
-                            <i class="fa fa-home"></i>
+                        <a href="#" target="_blank">
+                            <i class="fa fa-book"></i>
                             <span>Blog</span>
                         </a>
-                        <a href="https://weibo.com/fly3949/" target="_blank">
+                        <a href="#" target="_blank">
                             <i class="fa fa-weibo"></i>
                             <span>Weibo</span>
                         </a>
-                        <a href="https://plus.google.com/u/0/101753687289611833602" target="_blank">
-                            <i class="fa fa-google-plus"></i>
-                            <span>Google+</span>
-                        </a>
-                        <a href="https://twitter.com/ifly3949" target="_blank">
-                            <i class="fa fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
-                        <a href="https://github.com/fly3949" target="_blank">
-                            <i class="fa fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="mailto:i@iifly.cn" target="_blank">
+                        <a href="#" target="_blank">
                             <i class="fa fa-envelope"></i>
                             <span>E-Mail</span>
-                        </a>
+                            <a href="#" target="_blank">
+                                <i class="fa fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" target="_blank">
+                                <i class="iconfont iconbilibili"></i>
+                                <span>Bilibili</span>
+                            </a>
                     </div>
                 </section>
-                <section id="donate">
-                    <h1>拯救吃土的 Fly</h1>
-                    <div class="donate-img-box">
-                        <img src="assets/img/WeChat.png">
-                        <img src="assets/img/AliPay.png">
+                <section id="diy">
+                    <h1>网站公告</h1>
+                    <span id="announcement"><i class="fa fa-bullhorn" aria-hidden="true"></i>为生效公告</span>  <span id="announcement-old"><i class="fa fa-bullhorn" aria-hidden="true"></i>为过期公告</span>
+                    <div id="announcement"><i class="fa fa-bullhorn" aria-hidden="true"></i> XXXX博客上线！ / 2019-09-05</div>
+                    <div id="announcement-old"><i class="fa fa-bullhorn" aria-hidden="true"></i> 博客暂停更新，<a
+                            href="#">失联通知</a> / 2021-2022</div>
+
+                    <div id="announcement-old"><i class="fa fa-bullhorn" aria-hidden="true"></i> 迁移完成 / 2021-10-01
                     </div>
+                    <div id="announcement-old"><i class="fa fa-bullhorn" aria-hidden="true"></i>
+                        因服务器即将到期，预计将于2021年10月1-3日择机进行服务器迁移。迁移期间可能会出现无法访问的情况，敬请谅解。 / 2021-09-29</div>
+                    <div id="announcement-old"><i class="fa fa-bullhorn" aria-hidden="true"></i> 因大量恶意访问，博客暂时关闭，恢复时间另行通知。 /  2024-07-21</div>
                 </section>
             </div>
         </div>
 
         <footer>
             <p id="hitokoto">Loading...</p>
+            <br>
+            <span style="color: #ffffff;">
+                <p>XXXX个人分享</p>
+            </span>
+            <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow">XICP备XXX号-X</a></p>
+            <p><a target="_blank" href="https://beian.mps.gov.cn/#/query/webSearch?code=XXXX">
+                    <img style="height:18px;width:18px" src="assets/img/police-ico.png"> X公网安备
+                    XXXX号</a> </p>
             <div class="copyright-mobile">
                 Made with
                 <i class="fa fa-heart"></i> by
@@ -123,9 +143,13 @@ Project Link: https://github.com/fly3949/fly.moe
             </div>
         </footer>
     </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="assets/APlayer/dist/APlayer.min.js"></script>
+    <meting-js fixed="true" server="netease" type="playlist" id="5225821464" order="random" preload="none">
+    </meting-js>
+    <script>
+    </script>
+    <script src="assets/Meting/Meting.min.js"></script>
+    <script src="assets/js/jquery-3.3.1/dist/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
