@@ -12,6 +12,9 @@
 2.WordPress文章接入请编辑 /assets/js/main.js `` var api = "/"; ``。
 
 3.背景图片异步url在/assets/js/main.js，默认加载在 /assets/css/main.css  ``background-image: url("")`` base64 图片。
+4.meting-js默认填入网易云音乐5225821464歌单，
+在index.html中meting-js标签修改
+[MetingJS介绍](https://github.com/metowolf/MetingJS "MetingJS")
 
 ## 授权协议
 
