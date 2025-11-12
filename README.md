@@ -14,3 +14,10 @@
 ## 授权协议
 
 见原项目[[fly.moe](https://github.com/fly3949/fly.moe "fly.moe")]
+
+## 引用项目
+[APlayer](https://github.com/DIYgod/APlayer "APlayer") [MIT]
+[MetingJS](https://github.com/metowolf/MetingJS "MetingJS")[MIT]
+[font-awesome 4.7.0](https://github.com/FortAwesome/Font-Awesome/tree/4.x "font-awesome")[[Free License](https://fontawesome.com/license/free "Free License")]
+[minireset.css 0.0.3](https://github.com/jgthms/minireset.css/tree/0.0.3 "minireset.css 0.0.3")[MIT]
+iconfont 图标
