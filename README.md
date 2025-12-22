@@ -19,10 +19,10 @@
 
 ## 授权协议
 
-见原项目[[fly.moe](https://github.com/fly3949/fly.moe "fly.moe")]
-> * 仅限非商业使用
-* 允许二次修改
-* 需要在网页合适的位置注明作者信息或本项目地址
+以下为原项目[[fly.moe](https://github.com/fly3949/fly.moe "fly.moe")]授权协议，请严格遵循。
+>* 仅限非商业使用
+>* 允许二次修改
+>* 需要在网页合适的位置注明作者信息或本项目地址
 
 
 ## 引用项目
@@ -37,3 +37,6 @@
 [minireset.css （0.0.3）](https://github.com/jgthms/minireset.css/tree/0.0.3 "minireset.css 0.0.3")[MIT]
 
 iconfont 图标
+
+## AI声明
+本项目修改过程中使用AI辅助。
