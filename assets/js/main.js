@@ -109,19 +109,36 @@ xhr.onload = function () {
 }
 xhr.send();
 //metingjs
-const metingElem = document.getElementById('5225821464');
+// 按标签名查找第一个 <meting-js>，不再依赖「元素 id 恰好等于歌单 id」这一巧合
+const metingElem = document.querySelector('meting-js');
 
-// 使用 MutationObserver 监听 APlayer 初始化
-const observer = new MutationObserver(() => {
-  if (metingElem.aplayer) {
-    observer.disconnect();
-    bindAPlayerEvents(metingElem.aplayer);
+function initMetingPlayer() {
+  // 判空：页面里没有播放器元素时优雅退出，避免后续代码抛错
+  if (!metingElem) {
+    console.warn('[metingjs] 未找到 <meting-js> 元素，跳过播放器增强。');
+    return;
   }
-});
-observer.observe(metingElem, { childList: true, subtree: true });
+
+  // 若 APlayer 已同步初始化完成，直接绑定
+  if (metingElem.aplayer) {
+    bindAPlayerEvents(metingElem.aplayer);
+    return;
+  }
+
+  // 否则用 MutationObserver 等待 APlayer 异步创建完成
+  const observer = new MutationObserver(() => {
+    if (metingElem.aplayer) {
+      observer.disconnect();
+      bindAPlayerEvents(metingElem.aplayer);
+    }
+  });
+  observer.observe(metingElem, { childList: true, subtree: true });
+}
 
 // 绑定事件函数
 function bindAPlayerEvents(aplayer) {
+  const mediaSession = navigator.mediaSession;
+
   aplayer.lrc.hide(); // 默认隐藏歌词
 
   aplayer.on('play', () => {
@@ -130,37 +147,44 @@ function bindAPlayerEvents(aplayer) {
     console.log('🎵 播放开始:', currentAudio.name);
     console.log('🎤 歌手:', currentAudio.artist);
     console.log('🖼️ 封面:', currentAudio.cover);
-    const currentPlayMeta = aplayer.list.audios[aplayer.list.index]
-    navigator.mediaSession.metadata = new MediaMetadata({
-      title: currentPlayMeta.name,
-      artist: currentPlayMeta.artist,
-      artwork: [{ src: currentPlayMeta.cover || 'main-logo.png' }]
-    })
-    navigator.mediaSession.playbackState = "playing";
 
+    // Media Session：仅在浏览器支持时才写入，避免不支持时抛错
+    if (mediaSession && 'MediaMetadata' in window) {
+      mediaSession.metadata = new MediaMetadata({
+        title: currentAudio.name,
+        artist: currentAudio.artist,
+        artwork: [{ src: currentAudio.cover || 'main-logo.png' }]
+      });
+      mediaSession.playbackState = "playing";
+    }
   });
 
   aplayer.on('pause', () => {
     aplayer.lrc.hide(); // 暂停隐藏歌词
     console.log('⏸️ 已暂停');
-    navigator.mediaSession.playbackState = "paused";
-
+    if (mediaSession) mediaSession.playbackState = "paused";
   });
 
   aplayer.on('ended', () => {
     aplayer.lrc.hide(); // 播放结束隐藏歌词
     console.log('🏁 播放结束');
-    navigator.mediaSession.metadata = null;
-    navigator.mediaSession.playbackState = "none";
-
+    if (mediaSession) {
+      mediaSession.metadata = null;
+      mediaSession.playbackState = "none";
+    }
   });
 
-  navigator.mediaSession.setActionHandler('previoustrack', function () {
-    console.log('上一曲');
-    aplayer.skipBack()
-  });
-  navigator.mediaSession.setActionHandler("nexttrack", function () {
-    console.log('下一曲');
-    aplayer.skipForward()
-  });
+  // 注册系统媒体栏的上一曲/下一曲
+  if (mediaSession) {
+    mediaSession.setActionHandler('previoustrack', function () {
+      console.log('上一曲');
+      aplayer.skipBack();
+    });
+    mediaSession.setActionHandler("nexttrack", function () {
+      console.log('下一曲');
+      aplayer.skipForward();
+    });
+  }
 }
+
+initMetingPlayer();
