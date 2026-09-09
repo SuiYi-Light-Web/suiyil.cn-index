@@ -510,12 +510,12 @@ footer {
 #diy p {
     margin-top: 3em;
 }
-#announcement {
+#announcement, .announcement-legend {
     margin-top: 1em;
     text-align: left;
     color: #ff0000;
 }
-#announcement-old {
+#announcement-old, .announcement-old-legend {
     margin-top: 1em;
     text-align: left;
     color: #666;

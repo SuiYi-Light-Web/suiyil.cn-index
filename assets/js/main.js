@@ -24,21 +24,27 @@ function switchTo(target) {
 }
 
 function getAchives() {
-  t = ``;
+  var t = '', title, link, time;
   $.ajax({
     type: "GET",
     url: api + "wp-json/wp/v2/posts?per_page=10&page=1&_fields=date,title,link",
     dataType: "json",
     success: function (json) {
+      if (!json || !json.length) {
+        $('.archive-list').html('<li>暂无文章</li>');
+        return;
+      }
       for (var i = 0; i < json.length; i++) {
         title = json[i].title.rendered;
         link = json[i].link;
         time = new Date(json[i].date).Format("yyyy-MM-dd");
         t += `<li><a href="${link}" target="_blank">${title} <span class="meta">/ ${time}</span></a></li>`;
-        $('.archive-list').html(t);
       }
+      $('.archive-list').html(t);
     }
-  })
+  }).fail(function () {
+    $('.archive-list').html('<li>文章加载失败，请稍后刷新</li>');
+  });
 }
 
 function getHitokoto() {
@@ -54,10 +60,13 @@ function getHitokoto() {
   });
 }
 
+var hitokotoRetry = 0;
 function write(text) {
-  if (text.length < 30) {
+  if (text.length < 30 || hitokotoRetry >= 3) {
+    hitokotoRetry = 0;
     $('#hitokoto').html(text);
   } else {
+    hitokotoRetry++;
     getHitokoto();
   }
 }
